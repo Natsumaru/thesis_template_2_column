@@ -1,0 +1,136 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{luatexja-fontspec}  % LuaTeX-ja用のフォント設定
+
+% 配置'H'の使用
+\usepackage{float}
+
+% 余白
+\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage{changepage}
+
+%参考文献
+\makeatletter
+\renewcommand{\refname}{References}
+\makeatother
+
+% physics2
+\usepackage{physics2}
+\usephysicsmodule{ab}   % 括弧サイズの自動調整
+\usephysicsmodule{diagmat}  % 対角行列
+\usephysicsmodule[showleft=2,showtop=2]{xmat}   % nm行列
+% physics2 END
+
+% 量子回路
+\usepackage{quantikz}
+
+% 数式環境
+\usepackage{amsmath,amssymb}
+% ベクトル
+\usepackage{bm}
+% braket記法
+\usepackage{braket}
+% 微分演算子
+\usepackage{fixdif}
+\usepackage{derivative}
+% new command
+% Landau記号
+\newcommand{\order}[1]{\mathcal{O}\ab(#1)}
+% 勾配・発散・回転
+% 勾配
+\DeclareMathOperator{\grad}{\nabla}
+% 発散
+\DeclareMathOperator{\divergence}{\nabla\cdot}
+% \divが「÷」と競合するため再定義, 「÷」は \divisionsymbolで表記する
+\let\divisionsymbol\div 
+\renewcommand{\div}{\divergence}
+% 回転
+\DeclareMathOperator{\rot}{\nabla\times}
+% 勾配・発散・回転 END
+% 実部
+\renewcommand{\Re}{\operatorname{Re}}
+% 虚部
+\renewcommand{\Im}{\operatorname{Im}}
+% トレース
+\newcommand{\Tr}{\operatorname{Tr}}
+% rank
+\newcommand{\rank}{\operatorname{rank}}
+% new command END
+
+% 化学式
+\usepackage[version=4]{mhchem}
+% SI単位系
+\usepackage{siunitx}
+\DeclareSIUnit\angstrom{Å}
+
+% 表
+\usepackage{multirow}
+% 表の太線
+\newcommand{\bhline}{\noalign{\hrule height 1pt}}
+\newcommand{\bvline}{\vrule width 1pt}
+
+% 画像
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{titlesec}
+
+% セクション見出しを「IV. APPLICATIONS」形式にする
+\titleformat{\section}[block]
+	{\centering\normalfont\large\bfseries}
+	{\Roman{section}.}
+	{0.5em}
+	{\MakeUppercase}
+\titlespacing*{\section}{0pt}{1.2ex plus .4ex minus .2ex}{0.8ex}
+
+% ショートサマリー冒頭情報
+\newcommand{\ShortSummaryTitle}{Thesis Template}
+\newcommand{\ShortSummaryAuthor}{Taro Keio}
+\newcommand{\ShortSummaryAffiliation}{keio university}
+\newcommand{\ShortSummaryOverview}{Write a short overview of your work in one or two sentences.}
+
+\begin{document}
+
+\twocolumn[
+\begin{center}
+{\LARGE\bfseries \ShortSummaryTitle\par}
+\vspace{4mm}
+{\large \ShortSummaryAuthor\par}
+\vspace{1mm}
+{\normalsize \ShortSummaryAffiliation\par}
+\vspace{1mm}
+{\small\textbf{Overview:} \ShortSummaryOverview\par}
+\end{center}
+\vspace{6mm}
+] 
+
+\section{Introduction}
+This template is designed for first-time users of academic writing in LaTeX.
+In this section, explain the background of your topic and why the problem is important.
+Keep the explanation simple and start with definitions of key terms.
+
+\section{Motivation}
+Describe what motivated this study and what gap exists in previous work.
+You can write one paragraph about practical needs and another about academic interest.
+If possible, include a clear research question at the end of this section.
+\cite{Lloyd2016}
+\section{Result}
+Summarize your main findings in a concise and readable way.
+State what improved, what was confirmed, or what was newly discovered.
+When numbers are available, present representative values and conditions.
+
+\section{Methods}
+Explain how the study was conducted so that others can reproduce it.
+List assumptions, data sources, experimental setup, and analysis procedure.
+If a method has multiple steps, describe them in the order they were performed.
+
+
+\section{Discussion}
+Interpret the results and connect them to your original motivation.
+Discuss limitations, possible sources of error, and future extensions.
+End with a short conclusion that highlights the contribution of the work.
+\bibliographystyle{junsrt}
+\bibliography{reference}
+\end{document}
