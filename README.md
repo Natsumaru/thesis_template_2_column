@@ -26,7 +26,7 @@ Then connect your own remote repository:
 
 ```bash
 git branch -M main
-git remote add origin git@github.com:Natsumaru/thesis_template_2_column.git
+git remote add origin <your-repository-url>
 git push -u origin main
 ```
 
